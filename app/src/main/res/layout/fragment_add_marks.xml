@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="update"
+            type="com.task.mathongo.ui.marks.models.TestScore" />
+
+        <variable
+            name="marks"
+            type="com.task.mathongo.ui.marks.models.Scores" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.marks.fragments.AddMarks">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_test_score"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"/>
+
+                <ImageView
+                    android:id="@+id/close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_clear"
+                    android:layout_alignParentRight="true"/>
+
+
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_nta_abhyas_or_other_test_scores"
+                android:textSize="16sp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/test_series"
+                android:layout_marginTop="20dp"/>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/select_test_series"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+                <AutoCompleteTextView
+                    android:id="@+id/testseries"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:padding="15dp"
+                    android:text="@{update.testSeries??null}"
+                  />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/test_name"
+                android:layout_marginTop="20dp"/>
+            <EditText
+                android:id="@+id/testname"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:hint="@string/enter_test_name"
+                android:text="@{update.testName}"
+                android:padding="15dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/edittext"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/taken_on"
+                android:layout_marginTop="20dp"/>
+            <LinearLayout
+                android:id="@+id/datedialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/edittext">
+                <TextView
+                    android:id="@+id/datewritten"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:updatedatebinder="@{update.createdAt ?? `MM/DD/YYYY` }"
+                    android:padding="15dp"
+                    android:layout_marginTop="6dp"
+                    android:drawableEnd="@drawable/ic_calendar"
+                    android:drawableRight="@drawable/ic_calendar" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="@string/subject"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:text="@string/your_score"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/full_score"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:layout_margin="4dp">
+                        <CheckBox
+                            android:id="@+id/physicscheck"
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/physics"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginHorizontal="4dp"
+                            />
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/phymarks"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="0.8"
+                        android:hint="@string/zero"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:text="@{String.valueOf(marks.physics)??null}"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/edittext"/>
+
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="0.8"
+                        android:hint="@string/_100"
+                        android:enabled="false"
+                        android:textColorHint="@color/black"
+                        android:layout_margin="4dp"
+                        android:padding="15dp"
+                        android:gravity="center"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/edittext"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:layout_margin="4dp">
+                        <CheckBox
+                            android:id="@+id/chemistry"
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/chemistry"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginHorizontal="4dp"
+                            />
+
+                    </LinearLayout>
+
+
+                    <EditText
+                        android:id="@+id/chemmarks"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="4dp"
+                        android:layout_marginTop="6dp"
+                        android:inputType="number"
+                        android:layout_weight="0.8"
+                        android:background="@drawable/edittext"
+                        android:gravity="center"
+                        android:hint="@string/zero"
+                        android:maxLength="2"
+                        android:text="@{String.valueOf(marks.chemistry)??null}" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="0.8"
+                        android:hint="@string/_100"
+                        android:textColorHint="@color/black"
+                        android:enabled="false"
+                        android:layout_margin="4dp"
+                        android:padding="15dp"
+                        android:gravity="center"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/edittext"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:layout_margin="4dp">
+                        <CheckBox
+                            android:id="@+id/math"
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/maths"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginHorizontal="4dp"
+                            />
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/mathmarks"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="0.8"
+                        android:hint="@string/zero"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:text="@{String.valueOf(marks.mathematics)??null}"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/edittext"/>
+
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="4dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_weight="0.8"
+                        android:enabled="false"
+                        android:background="@drawable/edittext"
+                        android:gravity="center"
+                        android:hint="@string/_100"
+                        android:textColorHint="@color/black"
+                        android:padding="15dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+
+
+
+            </LinearLayout>
+            
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/savemarks"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true"
+            android:backgroundTint="@color/primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginVertical="10dp"
+            android:layout_marginHorizontal="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+
+                />
+        </androidx.cardview.widget.CardView>
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:visibility="gone"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

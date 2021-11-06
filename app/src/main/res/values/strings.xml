@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">mathonGo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_score">Add Score</string>
+    <string name="add_test_score">Add Test Score</string>
+    <string name="add_nta_abhyas_or_other_test_scores">Add NTA Abhyas or other test scores</string>
+    <string name="select_test_series">Select Test Series</string>
+    <string name="test_name">Test Name</string>
+    <string name="test_series">Test Series :</string>
+    <string name="enter_test_name">Enter Test Name</string>
+    <string name="taken_on">Taken On</string>
+    <string name="subject">Subject</string>
+    <string name="physics">Physics</string>
+    <string name="chemistry">Chemistry</string>
+    <string name="maths">Maths</string>
+    <string name="your_score">Your Score</string>
+    <string name="mm_dd_yyyy">MM/DD/YYYY</string>
+    <string name="zero">00</string>
+    <string name="full_score">Full Score</string>
+    <string name="_100">100</string>
+    <string name="save">Save</string>
+    <string name="_1_test_name">1.Test Name</string>
+    <string name="_2021_jan_12">2021 Jan 12</string>
+    <string name="_00_00">00/00</string>
+    <string name="please_enter_your_email">Please enter your email</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+</resources>
